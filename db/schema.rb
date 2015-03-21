@@ -11,13 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150302183758) do
+ActiveRecord::Schema.define(version: 20150321200038) do
 
   create_table "chapters", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "api_key"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "phone"
+    t.date     "renewal_due"
+    t.datetime "created_on"
   end
 
   add_index "chapters", ["user_id"], name: "index_chapters_on_user_id"
@@ -44,6 +50,9 @@ ActiveRecord::Schema.define(version: 20150302183758) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "api_key"
+    t.string   "authorization_key"
+    t.integer  "account_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

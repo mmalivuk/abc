@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :chapters
+  resources :chapters do
+    collection do
+      post 'sync'
+    end
+  end
 
   resources :parents
 
@@ -8,7 +12,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
- root 'parents#index'
+  root 'chapters#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -2,7 +2,10 @@ module WildApricot
   class Token
     include HTTParty
     base_uri 'https://oauth.wildapricot.org'
-    headers 'Authorization' => "Basic #{Base64.encode64('API KEY HERE')}"
+
+    def initialize(api_key)
+      self.class.headers({ 'Authorization' => "Basic #{Base64.encode64(api_key)}" })
+    end
 
     def authorize
       endpoint = '/auth/token'
