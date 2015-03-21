@@ -9,6 +9,6 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:account_update) << :api_key
+    devise_parameter_sanitizer.for(:account_update) << :api_key << :account_id
   end
 end
