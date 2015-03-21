@@ -1,5 +1,5 @@
 class ChaptersController < ApplicationController
-  before_action :set_chapter, only: [:show, :edit, :update, :destroy]
+  before_action :set_chapter, only: [:show, :destroy]
 
   # GET /chapters
   # GET /chapters.json
@@ -10,45 +10,6 @@ class ChaptersController < ApplicationController
   # GET /chapters/1
   # GET /chapters/1.json
   def show
-  end
-
-  # GET /chapters/new
-  def new
-    @chapter = Chapter.new
-  end
-
-  # GET /chapters/1/edit
-  def edit
-  end
-
-  # POST /chapters
-  # POST /chapters.json
-  def create
-    @chapter = Chapter.new(chapter_params)
-
-    respond_to do |format|
-      if @chapter.save
-        format.html { redirect_to @chapter, notice: 'Chapter was successfully created.' }
-        format.json { render :show, status: :created, location: @chapter }
-      else
-        format.html { render :new }
-        format.json { render json: @chapter.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /chapters/1
-  # PATCH/PUT /chapters/1.json
-  def update
-    respond_to do |format|
-      if @chapter.update(chapter_params)
-        format.html { redirect_to @chapter, notice: 'Chapter was successfully updated.' }
-        format.json { render :show, status: :ok, location: @chapter }
-      else
-        format.html { render :edit }
-        format.json { render json: @chapter.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # DELETE /chapters/1
