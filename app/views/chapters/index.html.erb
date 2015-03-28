@@ -5,8 +5,11 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
-      <th>Api key</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Renewal Due</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,8 +17,11 @@
   <tbody>
     <% @chapters.each do |chapter| %>
       <tr>
-        <td><%= chapter.user %></td>
-        <td><%= chapter.api_key %></td>
+        <td><%= chapter.first_name %></td>
+        <td><%= chapter.last_name %></td>
+        <td><%= chapter.email %></td>
+        <td><%= chapter.phone %></td>
+        <td><%= chapter.renewal_due %></td>
         <td><%= link_to 'Show', chapter %></td>
         <td><%= link_to 'Edit', edit_chapter_path(chapter) %></td>
         <td><%= link_to 'Destroy', chapter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -25,5 +31,4 @@
 </table>
 
 <br>
-
-<%= link_to 'New Chapter', new_chapter_path %>
+<%= link_to 'Settings', edit_user_registration_path %>

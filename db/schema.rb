@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150321200038) do
+ActiveRecord::Schema.define(version: 20150328224730) do
 
   create_table "chapters", force: :cascade do |t|
     t.integer  "user_id"
@@ -24,8 +24,10 @@ ActiveRecord::Schema.define(version: 20150321200038) do
     t.string   "phone"
     t.date     "renewal_due"
     t.datetime "created_on"
+    t.integer  "external_id"
   end
 
+  add_index "chapters", ["external_id"], name: "index_chapters_on_external_id", unique: true
   add_index "chapters", ["user_id"], name: "index_chapters_on_user_id"
 
   create_table "parents", force: :cascade do |t|
@@ -51,8 +53,9 @@ ActiveRecord::Schema.define(version: 20150321200038) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "api_key"
-    t.string   "authorization_key"
+    t.string   "access_token"
     t.integer  "account_id"
+    t.string   "refresh_token"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

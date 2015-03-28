@@ -10,7 +10,7 @@ module WildApricot
 
     def all
       endpoint = "/Accounts/#{@account_id}/Contacts?$async=false"
-      self.class.get(endpoint).parsed_response
+      self.class.get(endpoint).parsed_response['Contacts']
     end
 
     def find(contact_id)

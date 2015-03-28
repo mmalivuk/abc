@@ -4,7 +4,7 @@ class ChaptersController < ApplicationController
   # GET /chapters
   # GET /chapters.json
   def index
-    @chapters = Chapter.all
+    @chapters = current_user.chapters
   end
 
   # GET /chapters/1

@@ -4,7 +4,7 @@ module WildApricot
     base_uri 'https://oauth.wildapricot.org'
 
     def initialize(api_key)
-      self.class.headers({ 'Authorization' => "Basic #{Base64.encode64(api_key)}" })
+      self.class.headers({ 'Authorization' => "Basic #{Base64.encode64("APIKEY:#{api_key}")}" })
     end
 
     def authorize
@@ -13,7 +13,7 @@ module WildApricot
       self.class.post(endpoint, body: body).parsed_response
     end
 
-    def refresh_token(token)
+    def refresh(token)
       endpoint = '/auth/token'
       body = { grant_type: 'refresh_token', refresh_token: token }
       self.class.post(endpoint, body: body).parsed_response
